@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kristýnky stránka</title>
+  <style>
+    body { 
+      margin: 0; 
+      font-family: system-ui, sans-serif; 
+      background-color: #fefaf5;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    .box-b6t {
+      max-width: 360px;
+    }
+    .spin-m8x {
+      width: 36px;
+      height: 36px;
+      border: 4px solid #eee;
+      border-top: 4px solid #ff90c2;
+      border-radius: 50%;
+      animation: rotate-x1j 1s linear infinite;
+      margin: 1rem auto;
+    }
+    @keyframes rotate-x1j {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .hidden-z7w {
+      display: none;
+    }
+    .button-vk5 {
+      margin-top: 1.5rem;
+      padding: 10px 18px;
+      background-color: #ff90c2;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    footer {
+      position: absolute;
+      bottom: 1rem;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="loader-b4s" class="spin-m8x"></div>
+
+  <div id="content-pq3" class="hidden-z7w box-b6t">
+    <h1>👋 Ahoj!</h1>
+    <p>Vypadá to, že jsi mě otevřel/a v aplikaci.</p>
+    <p>Tohle není úplně ideální. Co udělat?</p>
+    <ol style="text-align: left; font-size: 15px;">
+      <li>1️⃣ V pravém horním rohu klepni na <strong>•••</strong></li>
+      <li>2️⃣ Zvol <em>„Otevřít v prohlížeči“</em></li>
+    </ol>
+    <p style="margin-top: 1rem;">Díky tomu se ti otevře stránka, kterou hledáš. 💫</p>
+    <button id="fallback-d9r" class="button-vk5 hidden-z7w">👉 Pokračovat na stránku</button>
+  </div>
+
+  <footer>
+    powered by kristynkystranka.com
+  </footer>
+
+  <script>
+    const ua_kx3 = navigator.userAgent.toLowerCase();
+    const isAppEnv_v2t = /(instagram|fbav|fbios|fban|tiktok)/i.test(ua_kx3);
+    const isMobile_g4n = /iphone|android|ipad|mobile/i.test(ua_kx3);
+
+    const loader = document.getElementById('loader-b4s');
+    const content = document.getElementById('content-pq3');
+    const fallback = document.getElementById('fallback-d9r');
+
+    setTimeout(() => {
+      loader.classList.add('hidden-z7w');
+      content.classList.remove('hidden-z7w');
+
+      if (!isAppEnv_v2t && !isMobile_g4n) {
+        fallback.classList.remove('hidden-z7w');
+        fallback.addEventListener('click', () => {
+          window.open('https://myapp.kristynkystranka.com', '_blank');
+        });
+      }
+    }, 600);
+  </script>
+
+</body>
+</html>
